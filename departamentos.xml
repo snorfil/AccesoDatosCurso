@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<departamentos>
+    <departamento>
+        <dept_no>10</dept_no>
+        <nombre>Contabilidad</nombre>
+        <loc>Logroño</loc>
+    </departamento>
+    <departamento>
+        <dept_no>20</dept_no>
+        <nombre>Produccion</nombre>
+        <loc>Logroño</loc>
+    </departamento>
+</departamentos>
