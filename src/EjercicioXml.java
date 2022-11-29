@@ -10,7 +10,8 @@ import java.io.File;
 public class EjercicioXml {
 
     public static void main(String[] args) {
-        new EjercicioXml();
+//        new EjercicioXml();
+        new LectorXml();
     }
     Document document;
     public EjercicioXml() {
@@ -66,6 +67,38 @@ public class EjercicioXml {
         Text text = document.createTextNode(value);
         raiz.appendChild(elem);
         elem.appendChild(text);
+
+    }
+
+    public static class LectorXml{
+        Document document;
+        public LectorXml() {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+
+            try {
+                DocumentBuilder builder = factory.newDocumentBuilder();
+                this.document = builder.parse(new File("departamentos.xml"));
+                this.document.getDocumentElement().normalize();
+                String nodo = document.getDocumentElement().getNodeName();
+
+                NodeList lista = this.document.getElementsByTagName(nodo);
+                for (int i = 0; i < lista.getLength(); i++) {
+                    Node n = lista.item(i);
+                    Element elemento = (Element) n;
+
+                   String dato = getDept_no(elemento,"dept_no");
+                    System.out.println(dato);
+
+
+                }
+            }catch (Exception e){
+
+            }
+        }
+
+        private String getDept_no(Element elemento,String tag) {
+            return elemento.getElementsByTagName(tag).item(0).getTextContent();
+        }
 
     }
 }
